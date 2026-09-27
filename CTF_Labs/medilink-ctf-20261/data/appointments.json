@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "patient_id": 101,
+    "patient_name": "Jordan Lee",
+    "doctor": "Dr. Alex Rivera",
+    "type": "Cardiology consult",
+    "date": "2026-08-14",
+    "time": "10:00",
+    "status": "cancelled",
+    "cancelled_at": "2026-08-05T17:49:39.649585"
+  },
+  {
+    "id": 2,
+    "patient_id": 102,
+    "patient_name": "Amy Chen",
+    "doctor": "Dr. Alex Rivera",
+    "type": "Hypertension follow-up",
+    "date": "2026-08-12",
+    "time": "09:30",
+    "status": "cancelled",
+    "cancelled_at": "2026-08-06T18:40:17.924933"
+  },
+  {
+    "id": 3,
+    "patient_id": 103,
+    "patient_name": "Raj Patel",
+    "doctor": "Dr. Alex Rivera",
+    "type": "Diabetes review",
+    "date": "2026-08-13",
+    "time": "14:00",
+    "status": "cancelled",
+    "cancelled_at": "2026-08-10T18:30:25.196484"
+  }
+]

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Log in{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+  <div class="auth-card glass">
+    <h2>Patient portal</h2>
+    <p class="muted">Sign in to your MediLink account.</p>
+    {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+    <form method="POST" action="{{ url_for('login') }}" class="form">
+      <label>Email address
+        <input type="email" name="email" value="{{ email or '' }}" placeholder="you@medilink.health" required autofocus>
+      </label>
+      <label>Password
+        <input type="password" name="password" placeholder="••••••••" required>
+      </label>
+      <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+    </form>
+    <p class="form-foot"><a href="{{ url_for('forgot') }}">Forgot password?</a> ·
+    <a href="{{ url_for('vault') }}">Challenge vault</a></p>
+  </div>
+</div>
+{% endblock %}

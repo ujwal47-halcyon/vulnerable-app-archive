@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "patient_id": 101,
+    "provider": "Dr. Alex Rivera",
+    "diagnosis": "Seasonal allergies",
+    "medications": [
+      "Loratadine 10mg"
+    ],
+    "notes": "Patient stable. Recheck in autumn.",
+    "last_visit": "2026-07-20"
+  },
+  {
+    "id": 2,
+    "patient_id": 102,
+    "provider": "Dr. Alex Rivera",
+    "diagnosis": "Hypertension (Stage 1)",
+    "medications": [
+      "Amlodipine 5mg"
+    ],
+    "notes": "BP trending down. Continue meds.",
+    "last_visit": "2026-07-28"
+  },
+  {
+    "id": 3,
+    "patient_id": 103,
+    "provider": "Dr. Alex Rivera",
+    "diagnosis": "Type 2 diabetes",
+    "medications": [
+      "Metformin 500mg"
+    ],
+    "notes": "A1C improving. Follow up labs ordered.",
+    "last_visit": "2026-08-01"
+  },
+  {
+    "id": 4,
+    "patient_id": 101,
+    "provider": "Dr. Alex Rivera",
+    "diagnosis": "Routine physical",
+    "medications": [],
+    "notes": "All clear.",
+    "last_visit": "2026-08-03"
+  }
+]

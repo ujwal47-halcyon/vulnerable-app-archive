@@ -1,0 +1,3 @@
+{% extends "base.html" %}
+{% block title %}Not found{% endblock %}
+{% block content %}<div class="empty glass"><div class="empty-icon">🩺</div><h2>{{ thing|capitalize }} not found</h2><p class="muted">The requested item doesn't exist.</p><a href="{{ url_for('dashboard') }}" class="btn btn-primary">Back to portal</a></div>{% endblock %}

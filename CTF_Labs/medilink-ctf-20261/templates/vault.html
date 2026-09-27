@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Challenge vault{% endblock %}
+{% block content %}
+<section class="vault-head">
+  <div>
+    <span class="pill">MEDILINK HEALTH · SECURITY PROGRAM</span>
+    <h1>Challenge vault</h1>
+    <p class="muted">Find the flaws. Capture the flags. Think like a bug bounty hunter.</p>
+  </div>
+  <div class="deadline glass"><span class="muted">⏳ Finish by August 19, 2026</span><strong id="countdown">Loading countdown…</strong></div>
+</section>
+
+<section class="vault-progress card glass">
+  <div class="progress-top"><div><strong>{{ solved|length }} <span class="muted">/ {{ challenges|length }} solved</span></strong></div><code class="player-code">Player ID: {{ pid }}</code></div>
+  <div class="progress-track"><div class="progress-fill" style="width: {{ (solved|length / challenges|length * 100)|round|int }}%"></div></div>
+  <p class="muted small">Your progress is saved permanently in the server's <code>data/</code> folder.</p>
+</section>
+
+<div class="challenge-grid">
+{% for c in challenges %}
+  {% set done = solved.get(c.id) %}
+  <article class="challenge-card glass {% if done %}solved{% endif %}">
+    <div class="challenge-top"><span class="challenge-num">{{ '%02d'|format(loop.index) }}</span>{% if done %}<span class="status status-done">✓ Captured</span>{% else %}<span class="status">🔒 Locked</span>{% endif %}</div>
+    <h3>{{ c.name }}</h3>
+    <span class="tag">{{ c.category }}</span><span class="difficulty">{{ c.difficulty }}</span>
+    <p class="muted hint">💡 {{ c.hint }}</p>
+    {% if done %}<p class="solved-at">Captured {{ done }}</p>{% endif %}
+  </article>
+{% endfor %}
+</div>
+
+<section class="resume card glass">
+  <h3>Resume a previous session</h3><p class="muted">Keep this Player ID somewhere safe. Paste it here to restore your flags on another browser.</p>
+  <form method="POST" class="form form-inline"><input name="player_id" placeholder="Paste Player ID" class="grow"><button class="btn btn-outline">Restore progress</button></form>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+const deadline = new Date("{{ deadline.deadline }}Z").getTime();
+function tick() {
+  const left = deadline - Date.now(), el = document.getElementById('countdown');
+  if (left <= 0) { el.textContent = 'Deadline reached — keep going!'; return; }
+  const d = Math.floor(left / 86400000), h = Math.floor(left / 3600000) % 24, m = Math.floor(left / 60000) % 60, s = Math.floor(left / 1000) % 60;
+  el.textContent = `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+}
+tick(); setInterval(tick, 1000);
+</script>
+{% endblock %}

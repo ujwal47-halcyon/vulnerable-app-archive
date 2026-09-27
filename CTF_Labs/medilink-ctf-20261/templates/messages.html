@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Messages{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div><h1>Message your care team</h1><p class="muted">Sent messages are stored and shown back to you below.</p></div>
+</section>
+
+<section class="card glass">
+  <div class="card-head"><h3>Compose</h3></div>
+  <form method="POST" action="{{ url_for('messages') }}" class="form">
+    <label>Subject
+      <input type="text" name="subject" placeholder="Prescription refill" required>
+    </label>
+    <label>Message
+      <textarea name="message" rows="5" placeholder="Hi Dr. Rivera, ..." required></textarea>
+    </label>
+    <button type="submit" class="btn btn-primary">Send message</button>
+  </form>
+</section>
+
+<section class="card glass">
+  <div class="card-head"><h3>Sent messages ({{ messages|length }})</h3></div>
+  {% if messages %}
+    {% for m in messages|reverse %}
+    <div class="message">
+      <div class="message-head">
+        <strong>{{ m.subject }}</strong>
+        <span class="muted">{{ m.ts }}</span>
+      </div>
+      {# VULNERABILITY: user message rendered raw (|safe) -> stored XSS #}
+      <div class="message-body">{{ m.message|safe }}</div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p class="muted">Nothing sent yet.</p>
+  {% endif %}
+</section>
+{% endblock %}

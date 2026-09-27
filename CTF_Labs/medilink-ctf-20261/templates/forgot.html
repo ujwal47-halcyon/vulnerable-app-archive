@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Forgot password{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+  <div class="auth-card glass">
+    <h2>Reset your password</h2>
+    <p class="muted">Enter the account email and we'll send a secure reset link.</p>
+    {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+
+    {% if sent %}
+      <div class="alert alert-ok">📨 If <strong>{{ email }}</strong> exists, a reset link is on its way.</div>
+      <!-- dev note: reset key = md5(<user_id>|<epoch_minute>)[:12]  →  account {{ user_id }} issued this minute -->
+      <p class="muted">Check the inbox for <strong>{{ email }}</strong>. The link expires shortly.</p>
+    {% else %}
+      <form method="POST" action="{{ url_for('forgot') }}" class="form">
+        <label>Email address
+          <input type="email" name="email" placeholder="you@medilink.health" required autofocus>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Send reset link</button>
+      </form>
+    {% endif %}
+    <p class="form-foot"><a href="{{ url_for('login') }}">Back to sign in</a></p>
+  </div>
+</div>
+{% endblock %}

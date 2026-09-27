@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-text">
+    <span class="pill">Secure telehealth · since 2023</span>
+    <h1>Care that connects<br>you to your <span class="grad">doctor</span>.</h1>
+    <p>Book appointments, message your care team, review your records, and manage prescriptions — all in one private portal.</p>
+    <div class="hero-actions">
+      <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg">Patient portal</a>
+      <a href="{{ url_for('vault') }}" class="btn btn-outline btn-lg">🎯 Challenge vault</a>
+    </div>
+  </div>
+  <div class="hero-card glass">
+    <div class="hero-card-head">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+    <div class="hero-card-body">
+      <p class="muted">Next appointment</p>
+      <h3>Cardiology consult</h3>
+      <p>Dr. Alex Rivera · <strong>Aug 14 · 10:00</strong></p>
+      <div class="divider"></div>
+      <p class="muted">Health score</p>
+      <div class="score-row"><span class="score-big">92</span><span class="score-note">Good</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="grid-3">
+  <div class="card glass">
+    <div class="card-icon">🗓️</div>
+    <h3>Appointments</h3>
+    <p>Book, reschedule or cancel visits with your care team.</p>
+  </div>
+  <div class="card glass">
+    <div class="card-icon">💬</div>
+    <h3>Secure messaging</h3>
+    <p>Message your doctor directly and get answers fast.</p>
+  </div>
+  <div class="card glass">
+    <div class="card-icon">📄</div>
+    <h3>Health records</h3>
+    <p>View diagnoses, medications and visit notes anytime.</p>
+  </div>
+</section>
+
+<section class="note-bar glass">
+  <p>This is a <strong>training target</strong> for ethical security practice. It intentionally contains
+  vulnerabilities. Run it only on your own local machine — never deploy it.</p>
+</section>
+{% endblock %}

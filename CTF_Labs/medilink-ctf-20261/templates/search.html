@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div><h1>Search the portal</h1><p class="muted">Find records, appointments and past messages.</p></div>
+</section>
+<section class="card glass">
+  <form method="GET" action="{{ url_for('search') }}" class="form form-inline">
+    <input type="text" name="q" value="{{ q }}" placeholder="e.g. cardiology" class="grow" autofocus>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+  {% if q %}
+  <div class="divider"></div>
+  <p class="muted">Results for:</p>
+  <div class="search-echo">{{ q|safe }}</div>
+  <p class="muted small">No records matched your query. Try another term.</p>
+  {% endif %}
+</section>
+{% endblock %}

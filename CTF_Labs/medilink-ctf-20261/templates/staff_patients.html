@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Staff patients{% endblock %}
+{% block content %}
+<section class="page-head"><div><h1>Patient roster</h1><p class="muted">Staff-only patient management.</p></div></section>
+<section class="card glass">
+<table class="table">
+<thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Records</th></tr></thead>
+<tbody>
+{% for p in patients %}
+<tr>
+  <td><code>{{ p.id }}</code></td><td>{{ p.name }}</td><td>{{ p.email }}</td><td>{{ p.phone }}</td>
+  <td>{% for r in records if r.patient_id == p.id %}<a class="tag" href="{{ url_for('record_detail', rid=r.id) }}">#{{ r.id }}</a> {% endfor %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</section>
+{% endblock %}

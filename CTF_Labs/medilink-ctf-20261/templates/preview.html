@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Note preview{% endblock %}
+{% block content %}
+<section class="page-head"><div><h1>Care note preview</h1><p class="muted">Preview a formatted note before saving it.</p></div></section>
+<section class="card glass">
+  <p class="muted">This viewer supports rich text formatting. Try adding a note in the URL fragment after <code>#</code>.</p>
+  <div class="preview-box"><div class="muted small">Preview output</div><div id="note-output" class="note-output">Nothing to preview yet.</div></div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+// VULNERABILITY: DOM XSS — attacker-controlled location.hash flows into innerHTML.
+const rawNote = decodeURIComponent(location.hash.slice(1));
+document.getElementById('note-output').innerHTML = rawNote || 'Nothing to preview yet.';
+</script>
+{% endblock %}

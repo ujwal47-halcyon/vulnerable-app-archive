@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Appointments{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div><h1>Your appointments</h1><p class="muted">{{ appointments|length }} appointment(s).</p></div>
+</section>
+
+<section class="card glass">
+  {% if appointments %}
+    <table class="table">
+      <thead><tr><th>ID</th><th>Type</th><th>Doctor</th><th>Date</th><th>Time</th><th>Status</th><th></th></tr></thead>
+      <tbody>
+        {% for a in appointments %}
+        <tr>
+          <td><code>#{{ a.id }}</code></td>
+          <td>{{ a.type }}</td>
+          <td>{{ a.doctor }}</td>
+          <td>{{ a.date }}</td>
+          <td>{{ a.time }}</td>
+          <td><span class="tag {% if a.status == 'cancelled' %}tag-red{% else %}tag-green{% endif %}">{{ a.status }}</span></td>
+          <td>
+            {% if a.status != 'cancelled' %}
+            <form method="POST" action="{{ url_for('cancel_appointment', aid=a.id) }}" onsubmit="return confirm('Cancel this appointment?');">
+              <button class="btn btn-sm btn-ghost">Cancel</button>
+            </form>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="muted">No appointments on file.</p>
+  {% endif %}
+</section>
+<p class="muted small">IDs are short and sequential here too — cancel buttons only appear on rows that belong to you… in theory.</p>
+{% endblock %}

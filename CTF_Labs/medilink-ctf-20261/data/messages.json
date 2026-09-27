@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "from_email": "amy@medilink.health",
+    "from_name": "Amy Chen",
+    "subject": "Refill request",
+    "message": "Hi Dr. Rivera, could you refill my prescription? Thanks!",
+    "ts": "2026-08-04 09:12"
+  },
+  {
+    "id": 2,
+    "from_email": "raj@medilink.health",
+    "from_name": "Raj Patel",
+    "subject": "Lab results",
+    "message": "Can you review my latest labs before the appointment?",
+    "ts": "2026-08-04 16:40"
+  },
+  {
+    "id": 3,
+    "from_email": "jordan@medilink.health",
+    "from_name": "Jordan Lee",
+    "subject": "Blind XSS<svg onload=alert(1)>",
+    "message": "hi<svg onload=alert(2)>",
+    "ts": "2026-08-05 17:27:00"
+  },
+  {
+    "id": 4,
+    "from_email": "dr.alex@medilink.health",
+    "from_name": "Dr. Alex Rivera",
+    "subject": "y",
+    "message": "y",
+    "ts": "2026-08-06 18:32:42"
+  }
+]

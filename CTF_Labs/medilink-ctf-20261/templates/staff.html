@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Staff console{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div><h1>Staff console</h1><p class="muted">Welcome, {{ user.name }}.</p></div>
+  {% if not is_staff %}<span class="tag tag-red">patient session reached staff page</span>{% endif %}
+</section>
+
+{% if not is_staff %}
+<div class="alert alert-warn">This page was hidden from the patient UI, but the route itself did not enforce a staff role.</div>
+{% endif %}
+
+<section class="grid-4">
+  <div class="card glass stat"><p class="muted">Patients</p><div class="stat-num">{{ stats.patients }}</div></div>
+  <div class="card glass stat"><p class="muted">Appointments</p><div class="stat-num">{{ stats.appointments }}</div></div>
+  <div class="card glass stat"><p class="muted">Messages</p><div class="stat-num">{{ stats.messages }}</div></div>
+  <div class="card glass stat"><p class="muted">Records</p><div class="stat-num">{{ stats.records }}</div></div>
+</section>
+
+<section class="card glass">
+  <div class="card-head"><h3>Staff tools</h3></div>
+  <div class="quick-actions">
+    <a href="{{ url_for('staff_patients') }}" class="chip">👥 Patient list</a>
+    <a href="{{ url_for('staff_messages') }}" class="chip">💬 Message triage</a>
+    <a href="{{ url_for('api_directory') }}" class="chip">🧭 Staff directory API</a>
+  </div>
+</section>
+{% endblock %}

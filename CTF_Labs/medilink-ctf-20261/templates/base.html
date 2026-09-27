@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}MediLink Health{% endblock %} · MediLink Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-inner container">
+    <a href="{{ url_for('index') }}" class="brand"><span class="brand-mark">✚</span> MediLink<em>Health</em></a>
+    <nav class="nav-links">
+      <a href="{{ url_for('index') }}">Home</a>
+      {% if cu %}
+        <a href="{{ url_for('dashboard') }}">Portal</a>
+        <a href="{{ url_for('messages') }}">Messages</a>
+        <a href="{{ url_for('records') }}">Records</a>
+        <a href="{{ url_for('appointments') }}">Appointments</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        {% if cu.role == 'staff' %}<a href="{{ url_for('staff_home') }}">Staff</a>{% endif %}
+        <a href="{{ url_for('logout') }}" class="btn btn-ghost">Log out</a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="btn btn-ghost">Log in</a>
+      {% endif %}
+      <a href="{{ url_for('vault') }}" class="btn btn-primary">🎯 Vault</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container main">
+{% block content %}{% endblock %}
+</main>
+
+{% if captured_flag %}
+<div class="flag-toast" id="flagToast">
+  <div class="flag-toast-inner">
+    <span class="flag-emoji">🎉</span>
+    <div class="flag-text"><strong>Flag captured!</strong><code>{{ captured_flag }}</code></div>
+    <button class="flag-close" onclick="this.closest('#flagToast').remove()">×</button>
+  </div>
+</div>
+{% endif %}
+
+<footer class="footer">
+  <div class="container">
+    <p>MediLink Health — a fictional telehealth platform built for security training.</p>
+    <p>Run locally only · flag prefix <code>MEDILINK{...}</code> · progress persists in <code>data/</code></p>
+  </div>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

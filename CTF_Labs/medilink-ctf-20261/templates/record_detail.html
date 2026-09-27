@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Record #{{ record.id }}{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div><h1>Record <code>#{{ record.id }}</code></h1>
+  <p class="muted">Provider: {{ record.provider }} · Last visit {{ record.last_visit }}</p></div>
+  <a href="{{ url_for('records') }}" class="btn btn-ghost">← Back</a>
+</section>
+
+{% if not is_owner %}
+<div class="alert alert-warn">⚠️ This record belongs to <strong>another patient</strong>. You should not be able to view it.</div>
+{% endif %}
+
+<section class="card glass">
+  <div class="card-head"><h3>Diagnosis</h3></div>
+  <p>{{ record.diagnosis }}</p>
+  <div class="divider"></div>
+  <div class="card-head"><h3>Medications</h3></div>
+  <ul class="list">
+    {% for med in record.medications %}<li>{{ med }}</li>{% else %}<li class="muted">None</li>{% endfor %}
+  </ul>
+  <div class="divider"></div>
+  <div class="card-head"><h3>Clinical notes</h3></div>
+  <p class="muted">{{ record.notes }}</p>
+</section>
+{% endblock %}

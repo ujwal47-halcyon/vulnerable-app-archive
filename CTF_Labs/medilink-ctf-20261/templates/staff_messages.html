@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Staff messages{% endblock %}
+{% block content %}
+<section class="page-head"><div><h1>Message triage</h1><p class="muted">Patient-submitted messages for staff review.</p></div></section>
+<section class="card glass">
+{% for m in messages|reverse %}
+  <div class="message">
+    <div class="message-head"><strong>{{ m.subject }}</strong><span class="muted">{{ m.from_name }} · {{ m.ts }}</span></div>
+    {# VULNERABILITY: staff console renders patient content raw -> blind stored XSS execution zone #}
+    <div class="message-body">{{ m.message|safe }}</div>
+  </div>
+{% else %}
+  <p class="muted">No messages yet.</p>
+{% endfor %}
+</section>
+{% endblock %}

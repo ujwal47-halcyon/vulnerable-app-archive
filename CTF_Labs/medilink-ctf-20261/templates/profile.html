@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div><h1>Your profile</h1><p class="muted">Account details shown as the server sees them.</p></div>
+</section>
+
+<section class="grid-2">
+  <div class="card glass">
+    <div class="card-head"><h3>Details</h3></div>
+    <div class="kv"><span>Name</span><span>{{ user.name }}</span></div>
+    <div class="kv"><span>Email</span><span>{{ user.email }}</span></div>
+    <div class="kv"><span>Phone</span><span>{{ user.phone }}</span></div>
+    <div class="kv"><span>Role</span><span class="tag">{{ user.role }}</span></div>
+    <div class="kv"><span>User ID</span><span><code>{{ user.id }}</code></span></div>
+  </div>
+
+  <div class="card glass">
+    <div class="card-head"><h3>Update your details</h3></div>
+    <p class="muted small">This form updates the server's <code>/api/profile</code> endpoint.</p>
+    <form class="form" onsubmit="updateProfile(event)">
+      <label>Name <input type="text" id="pf-name" value="{{ user.name }}"></label>
+      <label>Phone <input type="text" id="pf-phone" value="{{ user.phone }}"></label>
+      <button type="submit" class="btn btn-primary btn-block">Save changes</button>
+    </form>
+    <div id="pf-result" class="muted small"></div>
+  </div>
+</section>
+
+<section class="note-bar glass">
+  <p>🤫 <strong>Tip:</strong> watch what the profile API does with the JSON it receives — the browser
+  only sends two fields, but does the server care?</p>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+async function updateProfile(e) {
+  e.preventDefault();
+  const payload = {
+    name: document.getElementById('pf-name').value,
+    phone: document.getElementById('pf-phone').value
+  };
+  const res = await fetch('/api/profile', {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  const out = document.getElementById('pf-result');
+  out.textContent = 'Server response: ' + JSON.stringify(data);
+  if (data.flag) out.textContent += ' — ' + data.flag;
+}
+</script>
+{% endblock %}

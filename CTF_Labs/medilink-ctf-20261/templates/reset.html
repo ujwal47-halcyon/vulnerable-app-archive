@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Reset password{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+  <div class="auth-card glass">
+    {% if invalid %}
+      <h2>Link invalid</h2>
+      <div class="alert alert-error">This reset link is not valid (it may be expired or mistyped).</div>
+      <p class="form-foot"><a href="{{ url_for('forgot') }}">Request a new one</a></p>
+    {% else %}
+      <h2>Set a new password</h2>
+      <p class="muted">Resetting the password for <strong>{{ email }}</strong>.</p>
+      <form method="POST" action="{{ url_for('reset') }}" class="form">
+        <input type="hidden" name="token" value="{{ token }}">
+        <label>New password
+          <input type="password" name="password" placeholder="••••••••" required autofocus minlength="6">
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Update password</button>
+      </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

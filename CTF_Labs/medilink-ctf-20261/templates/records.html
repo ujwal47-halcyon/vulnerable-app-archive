@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Health records{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div><h1>Your health records</h1><p class="muted">{{ records|length }} record(s) on file.</p></div>
+</section>
+
+<section class="card glass">
+  {% if records %}
+    <table class="table">
+      <thead><tr><th>ID</th><th>Provider</th><th>Diagnosis</th><th>Last visit</th><th></th></tr></thead>
+      <tbody>
+        {% for r in records %}
+        <tr>
+          <td><code>#{{ r.id }}</code></td>
+          <td>{{ r.provider }}</td>
+          <td>{{ r.diagnosis }}</td>
+          <td>{{ r.last_visit }}</td>
+          <td><a href="{{ url_for('record_detail', rid=r.id) }}" class="btn btn-sm btn-ghost">Open</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="muted">No records on file.</p>
+  {% endif %}
+</section>
+<p class="muted small">Record IDs are sequential and short — handy to keep in mind.</p>
+{% endblock %}

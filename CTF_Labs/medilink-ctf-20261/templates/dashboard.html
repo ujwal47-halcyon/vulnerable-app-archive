@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Portal{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div>
+    <h1>Hi, {{ user.name }} 👋</h1>
+    <p class="muted">Here's what's happening with your care.</p>
+  </div>
+  <a href="{{ url_for('vault') }}" class="btn btn-outline">🎯 Challenge vault</a>
+</section>
+
+<section class="grid-3">
+  <div class="card glass stat">
+    <p class="muted">Records</p>
+    <div class="stat-num">{{ records|length }}</div>
+    <a href="{{ url_for('records') }}" class="link">View all →</a>
+  </div>
+  <div class="card glass stat">
+    <p class="muted">Appointments</p>
+    <div class="stat-num">{{ appointments|length }}</div>
+    <a href="{{ url_for('appointments') }}" class="link">View all →</a>
+  </div>
+  <div class="card glass stat">
+    <p class="muted">Messages</p>
+    <div class="stat-num">{{ messages|length }}</div>
+    <a href="{{ url_for('messages') }}" class="link">Open inbox →</a>
+  </div>
+</section>
+
+<section class="card glass">
+  <div class="card-head"><h3>Quick actions</h3></div>
+  <div class="quick-actions">
+    <a href="{{ url_for('messages') }}" class="chip">💬 Message your doctor</a>
+    <a href="{{ url_for('appointments') }}" class="chip">🗓️ Manage appointments</a>
+    <a href="{{ url_for('records') }}" class="chip">📄 Review records</a>
+    <a href="{{ url_for('search') }}" class="chip">🔎 Search the portal</a>
+    <a href="{{ url_for('preview') }}" class="chip">🩺 Preview a note</a>
+  </div>
+</section>
+
+<section class="grid-2">
+  <div class="card glass">
+    <div class="card-head"><h3>Upcoming appointments</h3><a href="{{ url_for('appointments') }}" class="link">all</a></div>
+    {% if appointments %}
+      {% for a in appointments[:3] %}
+        <div class="row"><div><strong>{{ a.type }}</strong><div class="muted">{{ a.doctor }}</div></div><div class="muted">{{ a.date }} · {{ a.time }}</div></div>
+      {% endfor %}
+    {% else %}
+      <p class="muted">No upcoming appointments.</p>
+    {% endif %}
+  </div>
+  <div class="card glass">
+    <div class="card-head"><h3>Latest messages</h3><a href="{{ url_for('messages') }}" class="link">inbox</a></div>
+    {% if messages %}
+      {% for m in messages[-3:]|reverse %}
+        <div class="row"><div><strong>{{ m.subject }}</strong><div class="muted">{{ m.ts }}</div></div></div>
+      {% endfor %}
+    {% else %}
+      <p class="muted">No messages yet — say hi to your care team.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

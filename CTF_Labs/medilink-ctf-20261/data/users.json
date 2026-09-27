@@ -1,0 +1,50 @@
+[
+  {
+    "id": 101,
+    "name": "Jordan Lee",
+    "email": "jordan@medilink.health",
+    "password": "Jordan#2026",
+    "role": "patient",
+    "phone": "(555) 010-2201",
+    "dob": "1989-04-12",
+    "allergies": [
+      "Penicillin"
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Amy Chen",
+    "email": "amy@medilink.health",
+    "password": "Amy#2026",
+    "role": "patient",
+    "phone": "(555) 010-2254",
+    "dob": "1992-11-03",
+    "allergies": [
+      "None on file"
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Raj Patel",
+    "email": "raj@medilink.health",
+    "password": "Raj#2026",
+    "role": "patient",
+    "phone": "(555) 010-2330",
+    "dob": "1978-02-27",
+    "allergies": [
+      "Sulfa drugs"
+    ]
+  },
+  {
+    "id": 201,
+    "name": "Dr. Alex Rivera",
+    "email": "dr.alex@medilink.health",
+    "password": "M3d1l1nk#2026",
+    "role": "staff",
+    "title": "Cardiologist",
+    "phone": "(555) 010-3000",
+    "dob": "1975-06-19",
+    "allergies": [],
+    "otp_enabled": true
+  }
+]
