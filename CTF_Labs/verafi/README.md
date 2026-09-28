@@ -36,7 +36,7 @@ Demo account to start from: `demo@verafi.io` / `Demo@1234`.
   your proxy's history — the same habit you'll need on real programs where
   the interesting stuff (rate-limit counters, cache status, debug headers,
   auth logic) never shows up in the rendered page either.
-- Submit flags at **`/flags`** — it tracks which of the 29 you've found.
+- Submit flags at **`/flags`** — it tracks which of the 29 you've found
 
 ## Where to start
 
@@ -56,7 +56,7 @@ Treat this exactly like a real engagement:
    hidden form fields are worth reading line by line — they often tell you
    exactly what the server is (wrongly) trusting.
 5. **Test the obvious stuff too.** Rate limits, IDOR by incrementing an ID,
-   a cookie you can just... edit. Real targets still have these.
+   a cookie you can just... edit. Real targets still have these
 
 ---
 
