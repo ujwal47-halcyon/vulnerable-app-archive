@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Features — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap section">
+  <div class="section-head">
+    <h1>One console for your whole fleet</h1>
+    <p class="lead muted">Manage services, DNS, TLS, backups and billing — no infrastructure babysitting.</p>
+  </div>
+
+  <div class="feature-row">
+    <div class="feature-copy">
+      <h2>Service dashboard</h2>
+      <p>Every service gets a live health panel: region, IP, SSH access, current plan and resource usage. Point a domain at it and CloudPeak provisions DNS + TLS automatically.</p>
+      <ul class="check-list">
+        <li>Real-time status and metrics</li>
+        <li>One-click restart, resize, re-deploy</li>
+        <li>Per-service access controls</li>
+      </ul>
+    </div>
+    <div class="feature-visual">
+      <div class="mini-card">
+        <div class="mini-head"><b>okafor-logistics</b><span class="status-dot up"></span></div>
+        <div class="mini-grid">
+          <div><em>Region</em><span>eu-west-1</span></div>
+          <div><em>IP</em><span>54.194.88.201</span></div>
+          <div><em>Plan</em><span>Enterprise</span></div>
+          <div><em>SSH</em><span>okafor-ops</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-row flip">
+    <div class="feature-copy">
+      <h2>Billing that makes sense</h2>
+      <p>Per-second metering, a predictable monthly invoice per service, and a payment portal that just works.</p>
+      <ul class="check-list">
+        <li>Itemized invoices with due dates</li>
+        <li>Usage-based add-ons</li>
+        <li>Auto-pay with instant receipts</li>
+      </ul>
+    </div>
+    <div class="feature-visual">
+      <div class="mini-card">
+        <div class="mini-head"><b>INV-2026-0802</b><span class="badge ok-badge">Paid</span></div>
+        <div class="mini-grid">
+          <div><em>Service</em><span>Okafor Logistics — Fleet Portal</span></div>
+          <div><em>Amount</em><span>$1,899.00</span></div>
+          <div><em>Due</em><span>2026-08-16</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-row">
+    <div class="feature-copy">
+      <h2>Human-first support</h2>
+      <p>Open a ticket and a real engineer picks it up. Track status and conversation history right in the portal.</p>
+      <ul class="check-list">
+        <li>Sequential reference numbers (TKT-1001, TKT-1002, …)</li>
+        <li>Priority routing for production incidents</li>
+        <li>Attachment support for logs and screenshots</li>
+      </ul>
+    </div>
+    <div class="feature-visual">
+      <div class="mini-card">
+        <div class="mini-head"><b>TKT-1005</b><span class="badge warn-badge">High</span></div>
+        <div class="mini-body">
+          <p><b>Password reset link not working</b></p>
+          <p class="muted small">"Hi, I'm locked out of my account. I requested a password reset but the link …"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}{{ invoice.ref }} — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap section">
+  <div class="dash-head">
+    <div>
+      <a href="/dashboard" class="link small">← Back to dashboard</a>
+      <h1 class="mono">{{ invoice.ref }}</h1>
+    </div>
+    <span class="badge {{ 'ok-badge' if invoice.status == 'paid' else 'warn-badge' }}">{{ invoice.status|capitalize }}</span>
+  </div>
+
+  {% if not is_own %}
+  <div class="flag-box flag-box-soft">
+    <span class="flag-label">Billing note · cross-customer invoice</span>
+    <p class="muted small" style="margin-top:6px">This invoice belongs to <b>{{ owner.name }} ({{ owner.email }})</b>. Another resource fetched by guessable ID — same horizontal IDOR pattern as services.</p>
+  </div>
+  {% endif %}
+
+  <div class="card invoice-sheet">
+    <div class="invoice-head">
+      <div>
+        <div class="brand-word">CloudPeak</div>
+        <p class="muted small">Managed cloud hosting</p>
+      </div>
+      <div class="invoice-meta">
+        <p><b>Issued:</b> {{ invoice.issued }}</p>
+        <p><b>Due:</b> {{ invoice.due }}</p>
+      </div>
+    </div>
+    <div class="invoice-rows">
+      <div class="invoice-row"><span>{{ invoice.ref }}</span><span class="mono">${{ "%.2f"|format(invoice.amount) }}</span></div>
+    </div>
+    <div class="invoice-total"><span>Total due</span><span class="mono">${{ "%.2f"|format(invoice.amount) }}</span></div>
+    <p class="muted small" style="margin-top:18px">Billed to <b>{{ owner.company }}</b> ({{ owner.email }}).</p>
+  </div>
+</section>
+{% endblock %}

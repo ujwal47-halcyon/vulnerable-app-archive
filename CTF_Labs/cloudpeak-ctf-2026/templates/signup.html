@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Create account — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap auth-wrap">
+  <div class="auth-card">
+    <h1>Create your account</h1>
+    <p class="muted">Start your 14-day free trial. No credit card required.</p>
+    {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+    <form method="post" class="form">
+      <label>Full name
+        <input type="text" name="name" placeholder="Alex Carter" required>
+      </label>
+      <label>Work email
+        <input type="email" name="email" placeholder="you@company.com" required>
+      </label>
+      <label>Company <span class="muted small">(optional)</span>
+        <input type="text" name="company" placeholder="Carter Dev">
+      </label>
+      <label>Password
+        <input type="password" name="password" placeholder="8+ characters" minlength="8" required>
+      </label>
+      <button type="submit" class="btn btn-primary btn-block">Create account</button>
+    </form>
+    <p class="muted small auth-links">Already have an account? <a href="/login">Sign in</a></p>
+  </div>
+</section>
+{% endblock %}

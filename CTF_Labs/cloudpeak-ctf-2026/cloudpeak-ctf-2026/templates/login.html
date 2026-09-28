@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Sign in — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap auth-wrap">
+  <div class="auth-card">
+    <h1>Welcome back</h1>
+    <p class="muted">Sign in to your CloudPeak console.</p>
+    {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+    <form method="post" class="form">
+      <label>Email
+        <input type="email" name="email" placeholder="you@company.com" required autofocus>
+      </label>
+      <label>Password
+        <input type="password" name="password" placeholder="••••••••" required>
+      </label>
+      <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+    </form>
+    <p class="muted small auth-links">
+      <a href="/forgot">Forgot password?</a> · <a href="/signup">Create an account</a>
+    </p>
+    <div class="demo-creds">
+      <p class="small"><b>Demo account:</b> alex@cloudpeak.io / Cloudpeak#2026</p>
+      <p class="small"><b>Admin (trainer):</b> admin@cloudpeak.io / admin123</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

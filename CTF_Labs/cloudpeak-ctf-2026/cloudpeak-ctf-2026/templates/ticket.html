@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}{{ ticket.ref }} — CloudPeak Support{% endblock %}
+{% block content %}
+<section class="wrap section">
+  <div class="dash-head">
+    <div>
+      <a href="/support" class="link small">← Back to support</a>
+      <h1 class="mono">{{ ticket.ref }} · {{ ticket.subject }}</h1>
+    </div>
+    <div class="dash-head-right">
+      <span class="badge {{ 'warn-badge' if ticket.priority == 'high' else 'ok-badge' if ticket.status == 'resolved' else '' }}">{{ ticket.priority|capitalize }}</span>
+      <span class="badge">{{ ticket.status|capitalize }}</span>
+    </div>
+  </div>
+
+  {% if ticket.owner != user.id %}
+  <div class="alert alert-warn">
+    Heads-up: this ticket was opened by <b>{{ owner.name }} ({{ owner.email }})</b>. Support conversations are meant to be private to the account owner.
+  </div>
+  {% endif %}
+
+  <div class="card ticket-thread">
+    <div class="ticket-meta">
+      <div>
+        <b>{{ owner.name }}</b>
+        <span class="muted small">{{ owner.email }}</span>
+      </div>
+      <span class="muted small">{{ ticket.created }}</span>
+    </div>
+    <div class="ticket-body">
+      {% for line in ticket.message.split('\n') %}
+      <p>{{ line }}</p>
+      {% endfor %}
+    </div>
+    {% if ticket.attachment %}
+    <div class="attachment">
+      <span>📎</span>
+      <div>
+        <b>{{ ticket.attachment }}</b>
+        <span class="muted small">Attached by customer</span>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">Add a reply</h3>
+    <form class="form" onsubmit="return false;">
+      <textarea rows="4" placeholder="Internal replies are disabled in this demo."></textarea>
+      <button class="btn btn-ghost" disabled>Reply (disabled in demo)</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

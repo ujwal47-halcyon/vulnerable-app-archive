@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "ref": "TKT-1001",
+    "owner": 4,
+    "subject": "Requesting staging environment access",
+    "message": "Hi team, I need SSH access to the staging box (staging.carterdev.io) to test our new checkout flow. Please add my deploy key.",
+    "status": "resolved",
+    "priority": "low",
+    "created": "2026-07-14",
+    "attachment": null
+  },
+  {
+    "id": 2,
+    "ref": "TKT-1002",
+    "owner": 6,
+    "subject": "Invoice INV-2026-0806 not emailed",
+    "message": "I didn't receive the invoice PDF in my inbox. Can you resend it to billing@sofiadental.com?",
+    "status": "open",
+    "priority": "normal",
+    "created": "2026-08-02",
+    "attachment": null
+  },
+  {
+    "id": 3,
+    "ref": "TKT-1003",
+    "owner": 2,
+    "subject": "Slow response from Fleet Portal",
+    "message": "Load times spiked on the fleet dashboard since the last deploy. Can ops check CPU on the eu-west-1 box?",
+    "status": "in_progress",
+    "priority": "high",
+    "created": "2026-08-05",
+    "attachment": null
+  },
+  {
+    "id": 4,
+    "ref": "TKT-1004",
+    "owner": 3,
+    "subject": "Certificate renewal stuck",
+    "message": "Let's Encrypt renewal failed twice on meilindesign.co. The http-01 challenge keeps timing out.",
+    "status": "open",
+    "priority": "normal",
+    "created": "2026-08-06",
+    "attachment": null
+  },
+  {
+    "id": 5,
+    "ref": "TKT-1005",
+    "owner": 1,
+    "subject": "Password reset link not working",
+    "message": "Hi, I'm locked out of my account. I requested a password reset but the link from the email keeps saying 'invalid or expired'. Here is the exact link I received so you can check what's wrong:\n\nhttps://localhost:5000/reset/3f9c1a2e-8b4d-4c5f-9e21-a7b3d5c8f2e1\n\nIt was emailed to priya@cloudpeak.io. Please advise.",
+    "status": "open",
+    "priority": "high",
+    "created": "2026-08-09",
+    "attachment": "password-reset-email.png"
+  },
+  {
+    "id": 6,
+    "ref": "TKT-1006",
+    "owner": 5,
+    "subject": "Why is my service suspended?",
+    "message": "I got a notice that rahulcrafts.in is suspended for non-payment but I have auto-pay enabled. Can you check?",
+    "status": "open",
+    "priority": "normal",
+    "created": "2026-08-09",
+    "attachment": null
+  },
+  {
+    "id": 7,
+    "ref": "TKT-1007",
+    "owner": 1,
+    "subject": "Change billing email",
+    "message": "Please change the billing contact on my account to accounts@prysmstudio.com.",
+    "status": "resolved",
+    "priority": "low",
+    "created": "2026-07-22",
+    "attachment": null
+  }
+]

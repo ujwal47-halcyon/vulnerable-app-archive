@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Reset password — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap auth-wrap">
+  <div class="auth-card">
+    <h1>Reset your password</h1>
+    <p class="muted">Enter your account email and we'll send a secure reset link.</p>
+    {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+    {% if sent %}
+      <div class="alert alert-success">
+        If an account exists for that address, a password-reset link is on its way. Check your inbox.
+        <div class="small muted" style="margin-top:6px">
+          (Dev mode: the reset link is printed to the <b>server console</b>, since this lab has no SMTP.)
+        </div>
+      </div>
+      <a href="/login" class="btn btn-ghost btn-block">Back to sign in</a>
+    {% else %}
+      <form method="post" class="form">
+        <label>Account email
+          <input type="email" name="email" placeholder="you@company.com" required autofocus>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Send reset link</button>
+      </form>
+      <p class="muted small auth-links"><a href="/login">Back to sign in</a></p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

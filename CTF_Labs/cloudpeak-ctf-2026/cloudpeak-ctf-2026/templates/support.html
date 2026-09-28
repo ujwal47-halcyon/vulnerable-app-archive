@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Support — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap section">
+  <div class="dash-head">
+    <div>
+      <h1>Support center</h1>
+      <p class="muted">Median first reply: 4 minutes. Ticket references are assigned in order (TKT-1001, TKT-1002, …).</p>
+    </div>
+  </div>
+
+  {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+  {% if created %}<div class="alert alert-success">Ticket <b>{{ created }}</b> created. We'll get back to you shortly.</div>{% endif %}
+
+  <div class="grid-2 support-grid">
+    <div class="card">
+      <h3 class="card-title">Open a new ticket</h3>
+      <form method="post" class="form">
+        <label>Subject
+          <input type="text" name="subject" placeholder="What can we help with?" required>
+        </label>
+        <label>Priority
+          <select name="priority">
+            <option value="low">Low</option>
+            <option value="normal" selected>Normal</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+        <label>Message
+          <textarea name="message" rows="6" placeholder="Share as much detail as you can — logs, links, timestamps…" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary">Submit ticket</button>
+      </form>
+    </div>
+
+    <div>
+      <h3 class="card-title">Your tickets</h3>
+      {% if tickets %}
+      <div class="ticket-list">
+        {% for t in tickets %}
+        <a href="/support/ticket/{{ t.ref }}" class="ticket-item">
+          <div class="ticket-item-top">
+            <b class="mono">{{ t.ref }}</b>
+            <span class="badge {{ 'warn-badge' if t.priority == 'high' else 'ok-badge' if t.status == 'resolved' else '' }}">{{ t.priority|capitalize }}</span>
+          </div>
+          <span class="ticket-subject">{{ t.subject }}</span>
+          <span class="muted small">{{ t.status|capitalize }} · {{ t.created }}</span>
+        </a>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="card empty-card"><p>You haven't opened any tickets yet.</p></div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

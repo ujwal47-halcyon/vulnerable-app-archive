@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Pricing — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap section">
+  <div class="section-head">
+    <h1>Simple, per-second pricing</h1>
+    <p class="lead muted">All plans include managed DNS, snapshots, DDoS protection and 24/7 human support.</p>
+  </div>
+  <div class="grid-3">
+    <div class="card plan">
+      <h3>Starter</h3>
+      <div class="price">$4<span>/mo</span></div>
+      <p class="muted">For side projects and staging.</p>
+      <ul class="plan-list">
+        <li>1 managed service</li>
+        <li>2 vCPU · 4 GB RAM · 80 GB SSD</li>
+        <li>1 global region</li>
+        <li>Weekly snapshots</li>
+        <li>Email support</li>
+      </ul>
+      <a href="/signup" class="btn btn-ghost btn-block">Start free trial</a>
+    </div>
+    <div class="card plan featured">
+      <span class="plan-badge">Most popular</span>
+      <h3>Business</h3>
+      <div class="price">$49<span>/mo</span></div>
+      <p class="muted">For production workloads.</p>
+      <ul class="plan-list">
+        <li>Up to 5 managed services</li>
+        <li>4 vCPU · 16 GB RAM · 256 GB SSD</li>
+        <li>3 global regions</li>
+        <li>Daily snapshots</li>
+        <li>Priority support queue</li>
+      </ul>
+      <a href="/signup" class="btn btn-primary btn-block">Start free trial</a>
+    </div>
+    <div class="card plan">
+      <h3>Enterprise</h3>
+      <div class="price">Custom</div>
+      <p class="muted">For global fleets and regulated workloads.</p>
+      <ul class="plan-list">
+        <li>Unlimited services</li>
+        <li>8+ vCPU · 32 GB+ RAM · NVMe</li>
+        <li>All 6 global regions</li>
+        <li>Hourly snapshots + DR region</li>
+        <li>Dedicated account engineer</li>
+      </ul>
+      <a href="/support" class="btn btn-ghost btn-block">Talk to sales</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

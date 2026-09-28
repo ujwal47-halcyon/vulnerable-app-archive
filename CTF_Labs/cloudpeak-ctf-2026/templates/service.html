@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}{{ service.name }} — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap section">
+  <div class="dash-head">
+    <div>
+      <a href="/dashboard" class="link small">← Back to dashboard</a>
+      <h1>{{ service.name }}</h1>
+      <p class="muted mono">{{ service.domain }}</p>
+    </div>
+    <span class="badge {{ 'ok-badge' if service.status == 'active' else 'warn-badge' }}">{{ service.status|capitalize }}</span>
+  </div>
+
+  {% if not is_own %}
+  <div class="flag-box">
+    <span class="flag-label">FLAG · cross-customer service read</span>
+    <code>{{ flag }}</code>
+    <p class="muted small" style="margin-top:6px">This service belongs to <b>{{ owner.name }} ({{ owner.email }})</b>, not you. You reached it by manipulating the reference — that's the IDOR.</p>
+  </div>
+  {% endif %}
+
+  <div class="grid-2">
+    <div class="card">
+      <h3 class="card-title">Configuration</h3>
+      <dl class="specs">
+        <div><dt>Plan</dt><dd>{{ service.plan }}</dd></div>
+        <div><dt>Region</dt><dd>{{ service.region }}</dd></div>
+        <div><dt>Compute</dt><dd>{{ service.vcore }} vCPU · {{ service.ram }} GB RAM · {{ service.disk }} GB SSD</dd></div>
+        <div><dt>Created</dt><dd>{{ service.created }}</dd></div>
+        <div><dt>Next renewal</dt><dd>{{ service.next_renewal }}</dd></div>
+      </dl>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">Access & networking</h3>
+      <dl class="specs">
+        <div><dt>Public IP</dt><dd class="mono">{{ service.ip }}</dd></div>
+        <div><dt>SSH user</dt><dd class="mono">{{ service.ssh_user }}</dd></div>
+        <div><dt>Owner</dt><dd>{{ owner.name }} · {{ owner.email }}</dd></div>
+      </dl>
+      <div class="cred-callout">
+        <span class="muted small">Client reference:</span>
+        <code>{{ ref }}</code>
+        <span class="muted small">— used for support lookups.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">Deployment notes</h3>
+    <p class="notes-text">{{ service.notes }}</p>
+  </div>
+</section>
+{% endblock %}

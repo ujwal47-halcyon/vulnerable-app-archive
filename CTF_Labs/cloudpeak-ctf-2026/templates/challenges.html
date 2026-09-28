@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Challenges — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap section">
+  <div class="section-head">
+    <h1>CTF challenges</h1>
+    <p class="lead muted">Both challenges are IDOR (CWE-639). Exploit each one, grab the flag, and mark it solved. Flags are also echoed in an <code>X-Cloudpeak-Flag</code> header if you prefer curl/Burp.</p>
+  </div>
+
+  <div class="challenge-list">
+    {% for c in challenges %}
+    <div class="card challenge-card" data-challenge="{{ c.id }}">
+      <div class="challenge-top">
+        <div class="challenge-num">{{ loop.index }}</div>
+        <div>
+          <h3>{{ c.title }}</h3>
+          <p class="muted small">Surface: <code>{{ c.surface }}</code></p>
+        </div>
+        <span class="challenge-state" data-state>Unsolved</span>
+      </div>
+      <p>{{ c.summary }}</p>
+      <div class="challenge-actions">
+        <details class="hint">
+          <summary>Hint</summary>
+          <p>{{ c.hint }}</p>
+        </details>
+        <details class="reveal">
+          <summary>Reveal flag</summary>
+          <code class="mono">{{ c.flag }}</code>
+        </details>
+        <button class="btn btn-ghost btn-sm js-toggle-solved" data-challenge="{{ c.id }}">Mark solved / unsolved</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+(function () {
+  var KEY = "cloudpeak_solved";
+  var solved = {};
+  try { solved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+
+  function render() {
+    document.querySelectorAll(".challenge-card").forEach(function (card) {
+      var id = card.getAttribute("data-challenge");
+      var state = card.querySelector("[data-state]");
+      if (solved[id]) {
+        state.textContent = "Solved ✓";
+        state.classList.add("is-solved");
+      } else {
+        state.textContent = "Unsolved";
+        state.classList.remove("is-solved");
+      }
+    });
+  }
+
+  document.querySelectorAll(".js-toggle-solved").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var id = btn.getAttribute("data-challenge");
+      solved[id] = !solved[id];
+      try { localStorage.setItem(KEY, JSON.stringify(solved)); } catch (e) {}
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+{% endblock %}

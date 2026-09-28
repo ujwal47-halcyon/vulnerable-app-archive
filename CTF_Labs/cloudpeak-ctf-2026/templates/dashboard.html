@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap section">
+  <div class="dash-head">
+    <div>
+      <h1>Hey, {{ user.name }}</h1>
+      <p class="muted">{{ user.company }} · {{ user.plan }} plan</p>
+    </div>
+    <a href="/support" class="btn btn-ghost">Open a ticket</a>
+  </div>
+
+  {% if user.email == "priya@cloudpeak.io" %}
+  <div class="flag-box">
+    <span class="flag-label">FLAG · priya@cloudpeak.io account</span>
+    <code>CLOUDPEAK{l34k3d_r3s3t_t0k3n_3qu4ls_4cc0unt_t4k30v3r}</code>
+    <p class="muted small" style="margin-top:6px">Signed in as Priya. If you got here through the leaked reset link, you've completed the account-takeover chain.</p>
+  </div>
+  {% endif %}
+
+  <div class="stats-row">
+    <div class="stat"><strong>{{ services|length }}</strong><span>Active services</span></div>
+    <div class="stat"><strong>{{ invoices|length }}</strong><span>Invoices</span></div>
+    <div class="stat"><strong>{{ tickets|length }}</strong><span>Support tickets</span></div>
+  </div>
+
+  <h2 class="section-sub">Your services</h2>
+  {% if services %}
+  <div class="grid-3">
+    {% for s in services %}
+    <div class="card service-card">
+      <div class="service-top">
+        <span class="status-dot {{ 'up' if s.status == 'active' else 'down' }}"></span>
+        <b>{{ s.name }}</b>
+      </div>
+      <div class="service-meta">
+        <span>{{ s.plan }}</span><span>{{ s.region }}</span><span>{{ s.status|capitalize }}</span>
+      </div>
+      <p class="muted small mono">{{ s.domain }}</p>
+      <a href="/service/{{ s.ref }}" class="btn btn-ghost btn-sm">Manage service</a>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="card empty-card">
+    <p>No services yet. <a href="/support">Contact sales</a> to provision your first one.</p>
+  </div>
+  {% endif %}
+
+  <h2 class="section-sub">Recent invoices</h2>
+  {% if invoices %}
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Reference</th><th>Service</th><th>Amount</th><th>Status</th><th>Due</th><th></th></tr>
+      </thead>
+      <tbody>
+        {% for inv in invoices %}
+        <tr>
+          <td class="mono">{{ inv.ref }}</td>
+          <td>{{ inv.service_name }}</td>
+          <td>${{ "%.2f"|format(inv.amount) }}</td>
+          <td><span class="badge {{ 'ok-badge' if inv.status == 'paid' else 'warn-badge' }}">{{ inv.status|capitalize }}</span></td>
+          <td>{{ inv.due }}</td>
+          <td><a href="/invoice/{{ inv.id }}" class="link">View →</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="card empty-card"><p>No invoices yet.</p></div>
+  {% endif %}
+</section>
+{% endblock %}

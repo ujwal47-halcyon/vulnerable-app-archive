@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Admin — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap section">
+  <div class="dash-head">
+    <div>
+      <h1>Platform admin</h1>
+      <p class="muted">Trainer tooling — legitimately role-gated. Use the reset helper below to restore accounts if a test run changes a password.</p>
+    </div>
+    <span class="badge ok-badge">admin</span>
+  </div>
+
+  <h2 class="section-sub">Users</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Plan</th><th>Company</th><th></th></tr></thead>
+      <tbody>
+        {% for u in users %}
+        <tr>
+          <td>{{ u.id }}</td><td>{{ u.name }}</td><td class="mono">{{ u.email }}</td>
+          <td><span class="badge {{ 'ok-badge' if u.role == 'admin' else '' }}">{{ u.role }}</span></td>
+          <td>{{ u.plan }}</td><td>{{ u.company }}</td>
+          <td>
+            <form method="post" action="/admin/users/{{ u.id }}/reset-password" class="inline-form">
+              <input type="text" name="new_password" placeholder="new password" size="14">
+              <button class="btn btn-ghost btn-sm">Set</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-sub">Services ({{ services|length }})</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Name</th><th>Owner</th><th>Plan</th><th>Status</th><th>Ref</th></tr></thead>
+      <tbody>
+        {% for s in services %}
+        <tr>
+          <td>{{ s.id }}</td><td>{{ s.name }}</td><td>{{ s.owner }}</td>
+          <td>{{ s.plan }}</td><td>{{ s.status }}</td><td class="mono">{{ s.ref if s.ref is defined else '—' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-sub">Tickets ({{ tickets|length }})</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Ref</th><th>Owner</th><th>Subject</th><th>Status</th><th>Priority</th></tr></thead>
+      <tbody>
+        {% for t in tickets %}
+        <tr>
+          <td>{{ t.id }}</td><td class="mono">{{ t.ref }}</td><td>{{ t.owner }}</td>
+          <td>{{ t.subject }}</td><td>{{ t.status }}</td><td>{{ t.priority }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

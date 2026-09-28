@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}CloudPeak — Managed Cloud Hosting{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="pill">New · Reserved instances now 40% cheaper</span>
+      <h1>Deploy at the speed of <span class="grad">your roadmap.</span></h1>
+      <p class="lead">CloudPeak is the managed cloud platform trusted by 12,000+ dev teams. Spin up edge-optimized services in seconds, scale automatically, and sleep easy while we handle uptime, DNS and backups.</p>
+      <div class="hero-cta">
+        <a href="/signup" class="btn btn-primary">Start free trial</a>
+        <a href="/pricing" class="btn btn-ghost">View pricing</a>
+      </div>
+      <p class="muted small">No credit card required · 14-day trial · Cancel anytime</p>
+    </div>
+    <div class="hero-card">
+      <div class="terminal">
+        <div class="terminal-bar"><span></span><span></span><span></span><em>cloudpeak deploy --stack prod</em></div>
+        <div class="terminal-body">
+          <p><span class="tk">$</span> cloudpeak service create okafor-logistics --plan enterprise</p>
+          <p><span class="ok">✔</span> Creating service <b>okafor-logistics</b>…</p>
+          <p><span class="ok">✔</span> Allocating in eu-west-1</p>
+          <p><span class="ok">✔</span> DNS: <b>okaforlogistics.com</b> → 54.194.88.201</p>
+          <p><span class="ok">✔</span> SSH user: <b>okafor-ops</b></p>
+          <p><span class="ok">✔</span> Ready in <b>14s</b></p>
+        </div>
+      </div>
+      <div class="hero-card-foot">
+        <span class="status-dot up"></span> All systems operational · 99.99% uptime SLA
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="stats-row">
+    <div class="stat"><strong>12,400+</strong><span>Active services</span></div>
+    <div class="stat"><strong>99.99%</strong><span>Uptime SLA</span></div>
+    <div class="stat"><strong>6</strong><span>Global regions</span></div>
+    <div class="stat"><strong>24/7</strong><span>Human support</span></div>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-head">
+    <h2>Everything your stack needs, managed</h2>
+    <p class="lead muted">From a single staging box to a global fleet — one console, one bill.</p>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>Edge-optimized compute</h3>
+      <p>Arm and x86 instances tuned for web apps, workers and databases. Autoscaling out of the box.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔐</div>
+      <h3>Zero-trust networking</h3>
+      <p>Private subnets, encrypted tunnels and per-service firewalls. Your fleet stays on a private mesh.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📡</div>
+      <h3>Managed DNS & TLS</h3>
+      <p>Anycast DNS and automatic certificate rotation. Point a domain and we handle the rest.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💾</div>
+      <h3>Hourly snapshots</h3>
+      <p>Point-in-time recovery on every volume. Restore a single file or the whole box in minutes.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧾</div>
+      <h3>Transparent billing</h3>
+      <p>Per-second metering with PDF invoices in your account — no hidden fees, ever.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎧</div>
+      <h3>Human support</h3>
+      <p>Real engineers on the other end of the ticket queue, 24/7, with a median first reply of 4 minutes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section cta-band">
+  <h2>Ready to move to the peak?</h2>
+  <p>Join teams who stopped babysitting infrastructure.</p>
+  <a href="/signup" class="btn btn-primary btn-lg">Create your account</a>
+  <a href="/login" class="btn btn-ghost">Existing customer? Sign in</a>
+</section>
+{% endblock %}

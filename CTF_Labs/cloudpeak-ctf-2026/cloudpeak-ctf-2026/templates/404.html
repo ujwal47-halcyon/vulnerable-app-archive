@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Page not found — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap section error-page">
+  <div class="error-code">404</div>
+  <h1>That page drifted off peak</h1>
+  <p class="muted">We couldn't find <code class="mono">{{ path }}</code>. Double-check the reference you entered.</p>
+  <a href="/" class="btn btn-primary">Back to home</a>
+</section>
+{% endblock %}

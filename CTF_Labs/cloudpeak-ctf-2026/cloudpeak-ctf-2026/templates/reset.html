@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Reset password — CloudPeak{% endblock %}
+{% block content %}
+<section class="wrap auth-wrap">
+  <div class="auth-card">
+    {% if invalid %}
+      <h1>Invalid or expired link</h1>
+      <div class="alert alert-error">This password-reset link is invalid or has expired. Please request a new one.</div>
+      <p class="muted small">A reset link is only valid for 24 hours from when it was emailed.</p>
+      <a href="/forgot" class="btn btn-primary btn-block">Request a new link</a>
+      <p class="muted small auth-links"><a href="/login">Back to sign in</a></p>
+
+    {% elif done %}
+      <h1>Password updated</h1>
+      {% if takeover %}
+        <div class="alert alert-success">
+          <b>Password for {{ email }} has been reset successfully.</b> You can now sign in with your new password.
+        </div>
+        <div class="flag-box">
+          <span class="flag-label">FLAG · account takeover</span>
+          <code>{{ flag }}</code>
+        </div>
+      {% else %}
+        <div class="alert alert-success">Your password has been updated. Sign in with your new password.</div>
+      {% endif %}
+      <a href="/login" class="btn btn-primary btn-block">Sign in</a>
+
+    {% else %}
+      <h1>Choose a new password</h1>
+      <p class="muted">Account: <b>{{ email }}</b></p>
+      {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+      <form method="post" class="form">
+        <label>New password
+          <input type="password" name="password" placeholder="8+ characters" minlength="8" required autofocus>
+        </label>
+        <label>Confirm password
+          <input type="password" name="confirm" placeholder="Repeat it" required>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Update password</button>
+      </form>
+      <p class="muted small auth-links"><a href="/login">Back to sign in</a></p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Priya Sharma",
+    "email": "priya@cloudpeak.io",
+    "password": "scrypt:32768:8:1$QJmFgPHXSfbMZGPZ$c4f377337eeadcef7eca0da832a354c596eb0d6acee27831e2eb6a7b34a3248ba34d18000ba68f3057f68d72e2267df7462436f5f031cab514b0ea43c64c1193",
+    "role": "user",
+    "plan": "Pro",
+    "company": "Prysm Studio",
+    "created": "2024-03-12"
+  },
+  {
+    "id": 2,
+    "name": "Daniel Okafor",
+    "email": "daniel@cloudpeak.io",
+    "password": "scrypt:32768:8:1$YYAdwu9q8QXmS8YO$9ec54846540de944261b5ccf705deab84b4a503ed3ce47e8c86bdb997be936c25e39644945c15b15facba0569fd0766676775b127ef5f34b3b721ba8dea0eaf3",
+    "role": "user",
+    "plan": "Enterprise",
+    "company": "Okafor Logistics",
+    "created": "2023-11-02"
+  },
+  {
+    "id": 3,
+    "name": "Mei Lin",
+    "email": "mei@cloudpeak.io",
+    "password": "scrypt:32768:8:1$5dhk8BokajpzrSa8$86490795545aaf0e722f9d291953d53a25167b6cfa624b4ead5cb39d76231f4ccc4cf84d5c1ca923f15d708328d993c05ede3df96b7e6f644db36a099c29b2f2",
+    "role": "user",
+    "plan": "Business",
+    "company": "Lin Design Co.",
+    "created": "2025-01-20"
+  },
+  {
+    "id": 4,
+    "name": "Alex Carter",
+    "email": "alex@cloudpeak.io",
+    "password": "scrypt:32768:8:1$jPuk6gcOs88krhyr$301625cebbed8d83dbb1271032d8b04461c5405db91d83034ef2e61ef66c2975360e141bb142f45779f703e937568be62ea92c7d664b0959e8dea24a557fc13b",
+    "role": "user",
+    "plan": "Starter",
+    "company": "Carter Dev",
+    "created": "2026-05-30"
+  },
+  {
+    "id": 5,
+    "name": "Rahul Mehta",
+    "email": "rahul@cloudpeak.io",
+    "password": "scrypt:32768:8:1$HNTtJwCnk8H7AwBj$7e2c08449e8a37f0bfbea11955a458ced4ccbe21f880eae79a3bd7c6e8544ae7edc28f4871bef7fba50b8f31a1b7ccd7d1fd8a7c3e8f5616249ac1f2a1428c20",
+    "role": "user",
+    "plan": "Starter",
+    "company": "Rahul Crafts",
+    "created": "2026-06-11"
+  },
+  {
+    "id": 6,
+    "name": "Sofia Reyes",
+    "email": "sofia@cloudpeak.io",
+    "password": "scrypt:32768:8:1$VRHEmUL0KAy3SiB3$5fb8f2d046e5fa7c89134545a3ff219b60c1ef4968ca4978acb631f378f9192cad76f5ab85f20d4b875e2cbafa936dcbdff1e6e23943b13553a658a8b0057927",
+    "role": "user",
+    "plan": "Business",
+    "company": "Sofia Dental",
+    "created": "2026-02-08"
+  },
+  {
+    "id": 99,
+    "name": "Platform Admin",
+    "email": "admin@cloudpeak.io",
+    "password": "scrypt:32768:8:1$bGJUrm5Gv5DgZqWa$1238b33309ea0270f3166a71c929fad5990f12c70568fa3a61dfddc15872a5311d173333532f6db4850b7ea96992cf966dfbd010072625a78aa9cd77c3cc8afa",
+    "role": "admin",
+    "plan": "Internal",
+    "company": "CloudPeak",
+    "created": "2022-01-01"
+  },
+  {
+    "id": 100,
+    "name": "Srushti",
+    "email": "srushti0721@gmail.com",
+    "password": "scrypt:32768:8:1$nNxO9FtcLMzzOdTx$23dfc9148469d172aea2b260a59689a0d7d74921cf27e296e3194f69a90f501d492f705d315f21cc7d58066697cd8dd11bd3bad46f1cb52b7e5e8421cbb30bd2",
+    "role": "user",
+    "plan": "Starter",
+    "company": "Reva Uni",
+    "created": "2026-08-10"
+  }
+]

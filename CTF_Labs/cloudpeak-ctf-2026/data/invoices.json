@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "owner": 1,
+    "ref": "INV-2026-0801",
+    "service": 1,
+    "amount": 299.0,
+    "status": "paid",
+    "issued": "2026-08-01",
+    "due": "2026-08-15"
+  },
+  {
+    "id": 2,
+    "owner": 2,
+    "ref": "INV-2026-0802",
+    "service": 2,
+    "amount": 1899.0,
+    "status": "paid",
+    "issued": "2026-08-01",
+    "due": "2026-08-16"
+  },
+  {
+    "id": 3,
+    "owner": 3,
+    "ref": "INV-2026-0803",
+    "service": 3,
+    "amount": 899.0,
+    "status": "overdue",
+    "issued": "2026-07-01",
+    "due": "2026-07-20"
+  },
+  {
+    "id": 4,
+    "owner": 4,
+    "ref": "INV-2026-0804",
+    "service": 4,
+    "amount": 49.0,
+    "status": "paid",
+    "issued": "2026-08-02",
+    "due": "2026-08-17"
+  },
+  {
+    "id": 5,
+    "owner": 5,
+    "ref": "INV-2026-0705",
+    "service": 5,
+    "amount": 49.0,
+    "status": "overdue",
+    "issued": "2026-07-01",
+    "due": "2026-07-20"
+  },
+  {
+    "id": 6,
+    "owner": 6,
+    "ref": "INV-2026-0806",
+    "service": 6,
+    "amount": 899.0,
+    "status": "paid",
+    "issued": "2026-08-01",
+    "due": "2026-08-15"
+  }
+]
