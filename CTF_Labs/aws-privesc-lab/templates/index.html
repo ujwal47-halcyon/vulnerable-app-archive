@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">AWS Privilege Escalation Lab</h3>
+            </div>
+            <div class="card-body">
+                <p>Welcome to the AWS Privilege Escalation training lab. This environment simulates common AWS misconfigurations that lead to privilege escalation.</p>
+
+                <div class="vuln-info">
+                    <strong>Learning Objectives:</strong>
+                    <ul>
+                        <li>Identify and exploit SSRF to access AWS Instance Metadata Service (IMDS)</li>
+                        <li>Abuse IAM policy misconfigurations for privilege escalation</li>
+                        <li>Understand dangerous AWS permissions that lead to account takeover</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-info">
+                    <strong>Credentials:</strong><br>
+                    Developer: developer / password123<br>
+                    Admin: admin / adminsecurepassword!
+                </div>
+
+                <a href="{{ url_for('login') }}" class="btn btn-primary w-100">Login to Begin</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

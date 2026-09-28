@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card mb-4">
+    <div class="card-body">
+        <h3>Welcome, {{ user }}</h3>
+        <p><strong>Role:</strong> {{ role_info.role }}</p>
+        <p><strong>Your IAM Policies:</strong> {{ policies | join(', ') }}</p>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header"><h4>Cloud Tools</h4></div>
+    <div class="card-body">
+        <h5>Fetch Remote URL (Simulated AWS Metadata Service)</h5>
+        <form method="GET" action="{{ url_for('fetch_url') }}">
+            <div class="input-group">
+                <input type="text" name="url" class="form-control" placeholder="http://169.254.169.254/latest/meta-data/...">
+                <button type="submit" class="btn btn-secondary">Fetch</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header"><h4>IAM Policy Management</h4></div>
+    <div class="card-body">
+        <form method="POST" action="{{ url_for('update_policy') }}">
+            <div class="mb-3">
+                <label>Target User</label>
+                <input type="text" name="target_user" class="form-control" value="{{ user }}">
+            </div>
+            <div class="mb-3">
+                <label>New Policy</label>
+                <select name="policy" class="form-select">
+                    <option value="AdministratorAccess">AdministratorAccess</option>
+                    <option value="s3:FullAccess">s3:FullAccess</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-warning">Update Policy</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
