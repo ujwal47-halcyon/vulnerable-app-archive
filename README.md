@@ -22,3 +22,5 @@ Day 11: Understood and practiced different kind of XSS.
 Day 34: Understood and practiced Stored Reflected XSS and IDOR.
 
 Day 35: Understood and practiced Authentication Bypass Different XSS and IDOR. 
+
+Day 36: Understood and practiced Authentication Bypass Different XSS and IDOR. 
