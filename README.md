@@ -1,52 +1,23 @@
-# Web Security and CTF Notes
+# Web CTF notes
 
-Notes from web security practice and CTF-style exercises. The repository includes practice labs across web security and cloud security, alongside my main focus on AWS security.
+Deliberately vulnerable web apps that I run on my own machine to practise web security. All of them are meant for localhost only.
 
-## Learning order
+## Labs
 
-### 1. Authentication and access control
+| Folder | What it practises |
+|---|---|
+| `autoelite-xss-lab` | XSS on a car dealership site |
+| `cloudpeak-ctf-2026` | IDOR on a cloud hosting SaaS |
+| `medilink-ctf-20261` | 10 bugs in a telehealth portal: authentication, access control, rate limiting, XSS including DOM XSS |
+| `nexuscloud-ctf-2026` | Stored XSS where only the browser checks the input |
+| `novabank` | Banking portal bugs in 2FA, OTP handling, CAPTCHA, account recovery and clickjacking |
+| `pizzakingdom` | A pizza ordering site for general web pentest practice |
+| `aws-privesc-lab` | Unfinished, templates only |
 
-- Authentication bypass
-- Broken access control
-- Insecure direct object references (IDOR)
+Each lab has its own README with setup steps. The solution notes live in `SOLUTION_GUIDE.md`, `SPOILERS.md` or `VULNERABILITIES.md`, so don't open those before you try the lab.
 
-### 2. Request handling
+The AWS IAM privilege escalation lab is in my [AWS notes repo](https://github.com/ujwal47-halcyon/aws-security-research).
 
-- Missing or weak rate limiting
-- Reviewing how applications handle repeated requests
+## Please don't
 
-### 3. Cross-site scripting
-
-- XSS basics
-- Reflected XSS
-- Stored XSS
-- Other XSS exercises from practice labs
-
-### 4. Cloud security labs
-
-The `CTF_Labs` directory also contains AWS and IAM privilege-escalation practice. Work through these only in the intended lab environment and keep the notes specific to the exercise.
-
-## Repository layout
-
-- [CTF labs](CTF_Labs/) — individual practice exercises, including web and cloud security labs
-
-## Lab write-up format
-
-For each exercise, record what is available:
-
-1. **Objective:** What the exercise covers
-2. **Setup:** The authorised lab environment
-3. **Steps:** How the issue was reproduced
-4. **Result:** What happened during the test
-5. **Impact:** Why the issue matters
-6. **Remediation:** How the application or configuration could be fixed
-
-Keep each write-up tied to the actual lab. Do not present practice exercises as findings from real-world targets.
-
-## Scope
-
-Use these techniques only in intentionally vulnerable labs, CTFs or systems where testing is explicitly authorised.
-
-## About
-
-I'm a BCA Cybersecurity and Digital Forensics student at REVA University. I'm learning web security alongside AWS cloud security and documenting the topics I practise.
+Don't deploy any of these on a public server or a network you don't control. The bugs are there on purpose.
