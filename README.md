@@ -1,8 +1,8 @@
 # Web Security and CTF Notes
 
-Notes from web security practice and CTF-style exercises. This repository is a record of topics studied in lab environments, alongside my main focus on AWS cloud security.
+Notes from web security practice and CTF-style exercises. The repository includes practice labs across web security and cloud security, alongside my main focus on AWS security.
 
-## Topics in learning order
+## Learning order
 
 ### 1. Authentication and access control
 
@@ -10,7 +10,7 @@ Notes from web security practice and CTF-style exercises. This repository is a r
 - Broken access control
 - Insecure direct object references (IDOR)
 
-### 2. Request handling and rate limits
+### 2. Request handling
 
 - Missing or weak rate limiting
 - Reviewing how applications handle repeated requests
@@ -20,22 +20,28 @@ Notes from web security practice and CTF-style exercises. This repository is a r
 - XSS basics
 - Reflected XSS
 - Stored XSS
-- Reviewing different XSS examples in practice labs
+- Other XSS exercises from practice labs
 
-The old notes used day numbers, including repeated topics and gaps in the sequence. The sections above organise the subjects by topic instead of implying a complete or exact timeline.
+### 4. Cloud security labs
+
+The `CTF_Labs` directory also contains AWS and IAM privilege-escalation practice. Work through these only in the intended lab environment and keep the notes specific to the exercise.
+
+## Repository layout
+
+- [CTF labs](CTF_Labs/) — individual practice exercises, including web and cloud security labs
 
 ## Lab write-up format
 
-For each exercise, record the following when available:
+For each exercise, record what is available:
 
 1. **Objective:** What the exercise covers
 2. **Setup:** The authorised lab environment
 3. **Steps:** How the issue was reproduced
 4. **Result:** What happened during the test
 5. **Impact:** Why the issue matters
-6. **Remediation:** How the application could be fixed
+6. **Remediation:** How the application or configuration could be fixed
 
-Keep the write-up tied to the actual lab. Do not present practice exercises as findings from real-world targets.
+Keep each write-up tied to the actual lab. Do not present practice exercises as findings from real-world targets.
 
 ## Scope
 
