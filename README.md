@@ -1,26 +1,21 @@
-# Bug_Bounty_Practice_CTF_Labs
-This is for my bug bounty CTF labs which I practice:
+# Web Security and CTF Notes
 
-Day 3: Understood and Practiced Authentication Bypass.
+This repository holds notes from web security practice and CTF-style exercises. The topics below reflect the areas I have worked through so far.
 
-Day 4: Understood and Practiced Broken Access Control / Privilege Escalation and IDOR
+## Topics
 
-Day 5: Understood and Practiced No Rate Limit, BAC and XSS.
+- Authentication bypass
+- Broken access control
+- Insecure direct object references (IDOR)
+- Rate-limiting issues
+- Cross-site scripting (XSS), including reflected and stored XSS
 
-Day 6: Understood and Practiced XSS header and XSS Reflected.
+## Lab notes
 
-Day 7: Continuation of XSS.
+When documenting an exercise, I aim to record the lab setup, the steps used to reproduce the issue, what happened, why it matters and how it could be fixed. Keep examples within the intended lab or another environment where testing is authorised.
 
-Day 8: understood and practiced Stored XSS.
+These notes are a learning record, not a claim that the techniques have been tested against real systems.
 
-Day 9: Understood and practiced XSS types.
+## About
 
-Day 10: Understood and practiced Stored XSS.
-
-Day 11: Understood and practiced different kind of XSS.
-
-Day 34: Understood and practiced Stored Reflected XSS and IDOR.
-
-Day 35: Understood and practiced Authentication Bypass Different XSS and IDOR. 
-
-Day 36: Understood and practiced Authentication Bypass Different XSS and IDOR. 
+I am a BCA Cybersecurity and Digital Forensics student at REVA University, learning web security alongside my main focus on AWS cloud security.
